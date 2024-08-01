@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <header>Infinity School</header>
+        <main>
+            <section class="display-login">
+                <form id="login">
+                    <input type="text" name="" id="usuario" placeholder="Usuario">
+                    <input type="text" name="" id="senha" placeholder="senha">
+                    <button>Entrar</button>
+                </form>
+            </section>
+
+            <section class="display-system" style="display: none;">
+
+                <nav class="menu">
+                    <ul>
+                        <li>
+                            <label id="frequencia">
+                                <input type="radio" name="tab" checked />
+                                <span>Frequencia de alunos</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label id="relatorios-professores">
+                                <input type="radio" name="tab" />
+                                <span>Relatorios</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label id='academico'>
+                                <input type="radio" name="tab" />
+                                <span>Academico</span>
+                            </label>
+                        </li>
+                    </ul>
+                </nav>
+                <div style="position: relative;">
+                    <section class="tab-content">
+                        <h1>Alunos</h1>
+                        <div class="listaAlunos">
+
+                        </div>
+                    </section>
+                    <section class="tab-content">
+                        <h1>Relatorio de alunos</h1>
+                        <div class="relatorios">
+                            <div class="relatorio-faltas">
+                                <h1>Números de faltas</h1>
+
+                                <canvas id="faltasAlunos"></canvas>
+
+                            </div>
+                            <div class="relatorio-presenca">
+                                <h1>Número de presenças</h1>
+                                <canvas id="presenca-alunos"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="tab-content">
+                        <form id="formCadastroTurma" class="cadastros">
+                            <h1>Cadastro de Turma</h1>
+                            <label for="turma">Turma:</label>
+                            <input type="text" placeholder="turma"
+                                id="inputTurma">
+                            <button>Cadastrar</button>
+                        </form>
+                        <div class="Aluno">
+                            <form id="formCadastroAluno" class="cadastros">
+                                <h1>Cadastro de Aluno</h1>
+                                <label for="aluno">Aluno:</label>
+                                <input type="text" placeholder="Aluno"
+                                    id="inputAluno">
+                                <input list="turmas" id="listTurma"
+                                    placeholder="Escolha a turma">
+                                <datalist id="turmas">
+
+                                </datalist>
+
+                                <button>Cadastrar</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+            </section>
+        </main>
+        <footer>
+            &copy; Lucas Kennde
+        </footer>
+        <script src="./script/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </body>
+</html>
