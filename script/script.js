@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const formCadastroTurma = document.querySelector("#formCadastroTurma")
     const formCadastroAluno = document.querySelector("#formCadastroAluno")
-    const formLogin = document.querySelector('#login')
+    
 
 
     const datalistTurma = document.querySelector("#turmas")
@@ -13,47 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const presencaAlunos = document.querySelector("#presenca-alunos")
 
     
-    const relatoriosProfessor = document.querySelector("#relatorios-professores")
-    const academico = document.querySelector("#academico")
-
-    const displayLogin = document.querySelector('.display-login')
-    const displaySystem = document.querySelector('.display-system')
-
-
-
-
-    //função para logar
-
-    formLogin.addEventListener('submit', (e)=>{
-        e.preventDefault()
-        const login = document.querySelector('#usuario').value
-        const senha = document.querySelector('#senha').value
-        if(login === 'monitor' && senha === 'senha'){
-            academico.style.pointerEvents = 'none'
-            relatoriosProfessor.style.pointerEvents = 'none'
-            displayLogin.style.display = 'none'
-            displaySystem.style.display = 'block'
-        }else if(login === 'professor' && senha ==='senha'){
-            academico.style.pointerEvents = 'none'
-            displayLogin.style.display = 'none'
-            displaySystem.style.display = 'block'
-        } else if(login === 'academico' && senha ==='senha'){
-            displayLogin.style.display = 'none'
-            displaySystem.style.display = 'block'
-        }else{
-            alert('Login ou senha incorretos')
-        }
-
-
-    })
-
+    
 
     let faltasChart = null;
     let presencaChart = null;
+
+
     //função para cadastrar turma
     formCadastroTurma.addEventListener('submit', (e) => {
         e.preventDefault();
+
         const turma = document.querySelector('#inputTurma');
+        if(turma.value ===''){
+            alert('Preencha o campo turma')
+            return
+        }    
         turmas.push(turma.value);
         localStorage.setItem('turma', JSON.stringify(turmas));
         turma.value = '';
@@ -66,12 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const nome = document.querySelector('#inputAluno');
         const listTurma = document.querySelector('#listTurma');
-
-        alunos.push({ nome: nome.value, turma: listTurma.value, presenca: [] });
-        localStorage.setItem('alunos', JSON.stringify(alunos));
-        nome.value = '';
-        listTurma.value = '';
-        atualizarDashboard()
+        if(listTurma.value === ''){
+            alert('Selecione uma turma para o aluno')
+        }else{
+            alunos.push({ nome: nome.value, turma: listTurma.value, presenca: [] });
+            localStorage.setItem('alunos', JSON.stringify(alunos));
+            nome.value = '';
+            listTurma.value = '';
+            atualizarDashboard()
+        }
+        
     })
 
     //função para marcar presenca
@@ -98,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             datalistTurma.innerHTML += `<option value='${lista}'></option>`
         });
 
-
         const GraficoAlunos = []; 
         const faltas = []; 
         const presenca = [];
@@ -117,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
             presenca.push(totalPresenca)
         });
 
+
+        
         if (faltasChart) faltasChart.destroy();
         if (presencaChart) presencaChart.destroy();
 

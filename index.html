@@ -7,14 +7,35 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <header>Infinity School</header>
+        <header>Infinity School
+            <div class="infLogin">
+                
+            </div>
+        </header>
         <main>
             <section class="display-login">
+                <div class="forms">
+                <button onclick="displayLogar()">Login</button>
+                <button onclick="displayCadastrar()">Cadastro</button>
+                </div>
+                
                 <form id="login">
+                    <h1>Login</h1>
                     <input type="text" name="" id="usuario" placeholder="Usuario">
-                    <input type="text" name="" id="senha" placeholder="senha">
+                    <input type="password" name="" id="senha" placeholder="senha">
                     <button>Entrar</button>
+                    
                 </form>
+                
+                <form id="cadastro">
+                    <h1>Cadastre-se</h1>
+                    <input type="text" name="" id="cadUser" placeholder="Digite o seu nome">
+                    <input type="password" name="" id="cadSenha" placeholder="Senha">
+                    <input type="password" name="" id="confCadSenha" placeholder="Confirme a senha">
+                    <button>Cadastrar</button>
+                    
+                </form>
+                
             </section>
 
             <section class="display-system" style="display: none;">
@@ -86,14 +107,20 @@
                                 <button>Cadastrar</button>
                             </form>
                         </div>
+                        <div class="usuarios">
+                            
+                        </div>
                     </section>
                 </div>
 
             </section>
+            
         </main>
         <footer>
             &copy; Lucas Kennde
         </footer>
+        <script src="./script/cadastros.js"></script>
+        <script src="./script/displays.js"></script>
         <script src="./script/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
