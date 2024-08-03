@@ -224,28 +224,33 @@ nav ul li label:has(input:checked) {
     width: 100%;
     max-width: 1040px;
 
-        div{
+}
+            
+            
+        
+.usuarios div{
             display: flex;
             justify-content: space-around;
             border-bottom: 2px solid red;
             padding: 0.5rem;
-            button{
-                cursor: pointer;
-                padding: 0.7rem 1.4rem;
-                border-radius: 0.4rem;
-                border: none;
-                background-color: #22272e;
-                color: #f9f9f9;
-                font-weight: 600;
-                transition: 0.4s;
 }
-                &:hover{
-                    background-color: rgba(255, 0, 0, 0.562);
-                    color:#22272e;
-                    border: 1px solid rgba(255, 0, 0, 0.562);
-                }
-            }
+.usuarios div button{
+    
+        cursor: pointer;
+        padding: 0.7rem 1.4rem;
+        border-radius: 0.4rem;
+        border: none;
+        background-color: #22272e;
+        color: #f9f9f9;
+        font-weight: 600;
+        transition: 0.4s;
+        
+        &:hover{
+            background-color: rgba(255, 0, 0, 0.562);
+            color:#22272e;
+            border: 1px solid rgba(255, 0, 0, 0.562);
         }
+    }
 
 footer{
     display: flex;
